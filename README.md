@@ -68,16 +68,44 @@ Validation
 - Mapeamento das entidades com JPA
 - Exclusão lógica
 - Migrations para controle das alterções
+* Utilizando códigos HTTP corretamente
+* Aprendendo a tratar erros
 * Padronizar os retornos dos controllers da API
-* Utilizando códigos HTTP corretament
 * Adicionando módulo Spring Security no projeto
 * Implementando mecanismo de autenticação da API
 * Realizando o controle de acesso na API
 * Utilizando Json Web Token para controlar o acesso na API
 
 
+[] -> Como rodar o projeto
+[] -> Inserir arquivo SQL para popular a tabela
+[] -> Rodar o MySQL
+[] -> Deixar o SQL automático com validação (IfNotExist)
+[] -> Criar o crud do paciente
+[] -> Estutura correta API
+
 <!-- 
 Bean
 DTO
 Interfaces Repository JpaRepository
+ -->
+
+ <!--
+ Cada ação do CRUD utilizar o seu método HTTP corretamente.
+
+ Tratamento do retorno da API nas requisições
+    Retornar o código correte, dependendo da solicitação.
+    Não devemos sempre retorna o método 200.
+    Excuir -> Códgio 204 (Requisição processada e sem conteúdo)
+
+    Quando criamos algo, retornamos o código 201.        
+    Código 201 - Requisição processada e novo recurso criado.
+        Porém o mesmo possui algumas regras.
+        devolver no corpo da resposta os dados do novo recurso
+        registrado.
+        Devolver também um cabeçalho do protocolo HTTP (Location)    
+        
+    
+Não podemos passar uma entidade JPA como retorno e como parametro recebido.
+Não é recomendado devolver e receber entidades JPA no controller.
  -->

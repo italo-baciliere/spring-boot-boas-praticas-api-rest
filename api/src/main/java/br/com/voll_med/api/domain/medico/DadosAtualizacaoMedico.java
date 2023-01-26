@@ -1,6 +1,6 @@
-package br.com.voll_med.api.model.medico;
+package br.com.voll_med.api.domain.medico;
 
-import br.com.voll_med.api.model.endereco.DadosEndereco;
+import br.com.voll_med.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoMedico(    

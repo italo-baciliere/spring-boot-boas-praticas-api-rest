@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,14 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.voll_med.api.model.medico.DadosAtualizacaoMedico;
-import br.com.voll_med.api.model.medico.DadosCadastroMedico;
-import br.com.voll_med.api.model.medico.DadosListagemMedico;
-import br.com.voll_med.api.model.medico.Medico;
-import br.com.voll_med.api.repository.medico.MedicoRepository;
+import br.com.voll_med.api.controller.medico.MedicoController;
+import br.com.voll_med.api.domain.medico.DadosAtualizacaoMedico;
+import br.com.voll_med.api.domain.medico.DadosCadastroMedico;
+import br.com.voll_med.api.domain.medico.DadosDetalhamentoMedico;
+import br.com.voll_med.api.domain.medico.DadosListagemMedico;
+import br.com.voll_med.api.domain.medico.Medico;
+import br.com.voll_med.api.domain.medico.MedicoRepository;
 import jakarta.validation.Valid;
 
 @RestController
@@ -27,17 +30,27 @@ import jakarta.validation.Valid;
 public class MedicoController {
     
     @Autowired
-    private MedicoRepository repository;
+    private MedicoRepository repository;    
+
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroMedico dadosCadastroMedico){
-        repository.save(new Medico(dadosCadastroMedico));
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dadosCadastroMedico, UriComponentsBuilder UriBuilder){
+        Medico medico = new Medico(dadosCadastroMedico);
+        repository.save(medico);
+        var uri = UriBuilder.path("medicos/{id}").buildAndExpand(medico.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
  
     @GetMapping
-    public Page<DadosListagemMedico> listar(@PageableDefault(size=10,sort={"especialidade"}) Pageable paginacao) {
-        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
+    public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size=10,sort={"especialidade"}) Pageable paginacao) {
+        var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
+        return ResponseEntity.ok(page);        
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id){
+        Medico medico = repository.getReferenceById(id);                
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
     // http://localhost:8080/medicos?size=1 -> forma errada, de acordo com as boas práticas de api rest
     // http://localhost:8080/medicos?sort=nome  |  http://localhost:8080/medicos?sort=crm,desc
@@ -48,15 +61,18 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
         Medico medico = repository.getReferenceById(dados.id());
-        medico.atualizarInformacoes(dados);        
+        medico.atualizarInformacoes(dados);
+        DadosDetalhamentoMedico dadosDetalhamento = new DadosDetalhamentoMedico(medico);
+        return ResponseEntity.ok(dadosDetalhamento);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void deletar(@PathVariable Long id){
+    public ResponseEntity deletar(@PathVariable Long id){
         Medico medico = repository.getReferenceById(id);
         medico.excluir();
+        return ResponseEntity.noContent().build();
     }
 }
