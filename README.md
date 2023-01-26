@@ -1,3 +1,9 @@
+## Aplicação desenvolvida no curso da Alura
+
+Spring Boot 3:
+aplique boas práticas e proteja uma API Rest
+https://www.alura.com.br/curso-online-spring-boot-aplique-boas-praticas-proteja-api-rest
+
 # Spring Boot - boas praticas em API Rest
 
 Voll Med
@@ -48,6 +54,26 @@ Validation
 
 - Bean Validation with Hibernate validator.
 
+
+# Conceitos aprendidos 
+
+- Diferenças do Spring tradicional
+- Novidadesdda versão 3.0.0
+- Spring Initializr
+- Estrutura de diretórios do Spring boot
+- API Rest
+- Módulos, como Web, Validação e Spring Data JPA.
+- Bibliotecas como o driver do MySQL, o Flyway e o Lombok
+- Realizar configurações do projeto
+- Mapeamento das entidades com JPA
+- Exclusão lógica
+- Migrations para controle das alterções
+* Padronizar os retornos dos controllers da API
+* Utilizando códigos HTTP corretament
+* Adicionando módulo Spring Security no projeto
+* Implementando mecanismo de autenticação da API
+* Realizando o controle de acesso na API
+* Utilizando Json Web Token para controlar o acesso na API
 
 
 <!-- 

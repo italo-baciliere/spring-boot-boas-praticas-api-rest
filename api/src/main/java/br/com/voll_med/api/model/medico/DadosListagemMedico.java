@@ -8,6 +8,9 @@ import jakarta.validation.constraints.Pattern;
 
 public record DadosListagemMedico(
 
+    @NotNull
+    Long id,
+
     @NotBlank
     String nome,
 
@@ -23,7 +26,7 @@ public record DadosListagemMedico(
     Especialidade especialidade
 ){
     public DadosListagemMedico(Medico medico){
-        this(medico.getNome(), medico.getEmail(), medico.getCrm(), medico.getEspecialidade());
+        this(medico.getId(), medico.getNome(), medico.getEmail(), medico.getCrm(), medico.getEspecialidade());
     }
 }
 
