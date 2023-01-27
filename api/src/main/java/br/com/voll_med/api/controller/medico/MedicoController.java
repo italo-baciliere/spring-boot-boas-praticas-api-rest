@@ -53,8 +53,7 @@ public class MedicoController {
         return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
     // http://localhost:8080/medicos?size=1 -> forma errada, de acordo com as boas práticas de api rest
-    // http://localhost:8080/medicos?sort=nome  |  http://localhost:8080/medicos?sort=crm,desc
-    // http://localhost:8080/medicos?sort=crm,desc&size=1&page=2
+    // http://localhost:8080/medicos?sort=nome  |  http://localhost:8080/medicos?sort=crm,desc  |  http://localhost:8080/medicos?sort=crm,desc&size=1&page=2    
     // sort=nome -> atributo da entidade JPA
     // O cliente que define os parametros de ordenação 
     // É recomendado que você retorne para o cliente quais os parâmetro possíveis

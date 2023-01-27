@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Pattern;
 
 public record DadosCadastroMedico(
 
-    @NotBlank
+    @NotBlank(message = "{nome.obrigatorio}")
     String nome,
 
     @NotBlank

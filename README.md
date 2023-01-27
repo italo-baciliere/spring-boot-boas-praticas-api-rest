@@ -68,8 +68,8 @@ Validation
 - Mapeamento das entidades com JPA
 - Exclusão lógica
 - Migrations para controle das alterções
-* Utilizando códigos HTTP corretamente
-* Aprendendo a tratar erros
+* Utilizando códigos HTTP corretamente para cada ação do CRUD
+* Aprendendo a tratar erros de requisição
 * Padronizar os retornos dos controllers da API
 * Adicionando módulo Spring Security no projeto
 * Implementando mecanismo de autenticação da API
@@ -83,6 +83,7 @@ Validation
 [] -> Deixar o SQL automático com validação (IfNotExist)
 [] -> Criar o crud do paciente
 [] -> Estutura correta API
+[] -> Criar testes automatizados com Spring
 
 <!-- 
 Bean
