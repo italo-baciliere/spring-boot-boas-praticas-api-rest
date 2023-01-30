@@ -75,3 +75,14 @@ public class MedicoController {
         return ResponseEntity.noContent().build();
     }
 }
+
+// HandleInterceptors
+/*
+ * 
+*/
+
+// Filters
+/*
+ * antes mesmo da execução do Spring 
+ * onde decidimos se a requisição será interrompida ou se chamaremos ainda outro filter
+*/
