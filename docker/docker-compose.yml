@@ -9,11 +9,13 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: vollmed_api
     ports:
       - "3306:3306"
     expose:
       - "3306"
     volumes:
+      - .docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
       - my-db:/var/lib/mysql
 
   adminer:

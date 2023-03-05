@@ -78,6 +78,13 @@ Validation
 
 
 [] -> Como rodar o projeto
+
+Inicie o docker com o banco de dados da aplicação:
+
+'''bash
+docker-compose up -d
+'''
+
 [] -> Inserir arquivo SQL para popular a tabela
 [] -> Rodar o MySQL
 [] -> Deixar o SQL automático com validação (IfNotExist)
@@ -109,4 +116,12 @@ Interfaces Repository JpaRepository
     
 Não podemos passar uma entidade JPA como retorno e como parametro recebido.
 Não é recomendado devolver e receber entidades JPA no controller.
+ -->
+
+
+
+<!-- LINKS PESQUISADOS
+
+https://johnfercher.medium.com/mysql-docker-7ff6d50d6cf1 (MySQL + Docker)
+https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup (Create database on docker-compose startup)
  -->
