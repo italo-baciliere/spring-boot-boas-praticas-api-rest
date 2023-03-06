@@ -1,4 +1,4 @@
-CREATE TABLE Medicos(
+CREATE TABLE medicos(
     
     id BIGINT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
