@@ -77,19 +77,29 @@ Validation
 * Utilizando Json Web Token para controlar o acesso na API
 
 
-[] -> Como rodar o projeto
+# Executando o Projeto
 
-Inicie o docker com o banco de dados da aplicação:
+Inicie um containner com o banco de dados e uma interface web para manipular o banco.
+Para isso, acesse a pasta docker e rode o comando:
 
 '''bash
-docker-compose up -d
+docker compose up -d
 '''
 
-[] -> Inserir arquivo SQL para popular a tabela
-[] -> Rodar o MySQL
+Acesse a interface pelo endereço http://localhost:3000
+e crie o banco de dados "vollmed_api"
+
+Rode o projeto, para isso, abra o arquivo ApiApplication.java e execute o arquivo.
+
+Caso aconteça algum erro na criação das migrations, acesse a base de dados da aplicação,
+e execute o camando:
+
+'''sql
+-- delete from flyway_schema_history where success = 0;
+'''
+
 [] -> Deixar o SQL automático com validação (IfNotExist)
 [] -> Criar o crud do paciente
-[] -> Estutura correta API
 [] -> Criar testes automatizados com Spring
 
 <!-- 
@@ -125,3 +135,9 @@ Não é recomendado devolver e receber entidades JPA no controller.
 https://johnfercher.medium.com/mysql-docker-7ff6d50d6cf1 (MySQL + Docker)
 https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup (Create database on docker-compose startup)
  -->
+
+<!-- SITES AUXILIARES
+
+https://www.4devs.com.br/
+https://www.lastpass.com/pt/features/password-generator#generatorTool
+-->
