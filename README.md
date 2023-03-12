@@ -101,6 +101,9 @@ e execute o camando:
 [] -> Deixar o SQL automático com validação (IfNotExist)
 [] -> Criar o crud do paciente
 [] -> Criar testes automatizados com Spring
+[] -> Dividir o modulo de autenticacao em um ms
+[] -> Aplicar o Elasticsearch (ECS)
+
 
 <!-- 
 Bean
@@ -134,10 +137,21 @@ Não é recomendado devolver e receber entidades JPA no controller.
 
 https://johnfercher.medium.com/mysql-docker-7ff6d50d6cf1 (MySQL + Docker)
 https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup (Create database on docker-compose startup)
- -->
-
-<!-- SITES AUXILIARES
-
+https://trello.com/b/O0lGCsKb/api-voll-med
+https://stackoverflow.com/questions/33349456/how-to-make-auto-reload-with-spring-boot-on-idea-intellij
 https://www.4devs.com.br/
 https://www.lastpass.com/pt/features/password-generator#generatorTool
+
+Log4j
+https://www.youtube.com/watch?v=tCErZHxaTxg&t=675s
+https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/2.20.0
+https://www.alura.com.br/artigos/log4j-entenda-sobre-vulnerabilidade?gclid=Cj0KCQiAjbagBhD3ARIsANRrqEsahLCbY3a6FH9kmoFITThvQ0s4BINZKXIYfdDfHZT7j3Ur6ulYUrsaAk-sEALw_wcB
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.logging
+https://logging.apache.org/log4j/2.x/manual/layouts.html
+https://www.baeldung.com/spring-boot-logging
+https://www.baeldung.com/spring-boot-logback-log4j2
+
+Elasticsearch
+https://www.elastic.co/pt/what-is/elasticsearch
+https://www.elastic.co/pt/what-is/ecs
 -->
