@@ -39,7 +39,10 @@ public class AutenticacaoController {
         logger.error("ERROR - Token não criado"); // quando ocorre algo inesperado. Blocos try catch.
         logger.fatal("FATAL"); // Crítico, Funcionalidade importante para de funcionar
 
+        // formato esperado pelo manager
         var tokenAutenticacao = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+
+        // retorna um objeto que representa o usuario autenticado no sistema
         var authentication = manager.authenticate(tokenAutenticacao);
 
         var tokenJWT = tokenService.gerarToken((Usuario)authentication.getPrincipal());
