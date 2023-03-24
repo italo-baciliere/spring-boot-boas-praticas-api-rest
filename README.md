@@ -40,7 +40,7 @@ Lombok
 
 Flyway Migration
 
-- Version control for your database so you can migrate from any version (incl. an empty database) to the latest version of the schema.
+- Version control for your database you can migrate from any version (incl. an empty database) to the latest version of the schema.
 
 Spring Data JPA
 
@@ -87,10 +87,35 @@ docker-compose up -d
 
 [] -> Inserir arquivo SQL para popular a tabela
 [] -> Rodar o MySQL
+
+# Executando o Projeto
+
+Inicie um containner com o banco de dados e uma interface web para manipular o banco.
+Para isso, acesse a pasta docker e rode o comando:
+
+'''bash
+docker compose up -d
+'''
+
+Acesse a interface pelo endereço http://localhost:3000
+e crie o banco de dados "vollmed_api"
+
+Rode o projeto, para isso, abra o arquivo ApiApplication.java e execute o arquivo.
+
+Caso aconteça algum erro na criação das migrations, acesse a base de dados da aplicação,
+e execute o camando:
+
+'''sql
+-- delete from flyway_schema_history where success = 0;
+'''
+
+
 [] -> Deixar o SQL automático com validação (IfNotExist)
 [] -> Criar o crud do paciente
-[] -> Estutura correta API
 [] -> Criar testes automatizados com Spring
+[] -> Dividir o modulo de autenticacao em um ms
+[] -> Aplicar o Elasticsearch (ECS)
+
 
 <!-- 
 Bean
@@ -124,4 +149,29 @@ Não é recomendado devolver e receber entidades JPA no controller.
 
 https://johnfercher.medium.com/mysql-docker-7ff6d50d6cf1 (MySQL + Docker)
 https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup (Create database on docker-compose startup)
+
  -->
+https://trello.com/b/O0lGCsKb/api-voll-med
+https://stackoverflow.com/questions/33349456/how-to-make-auto-reload-with-spring-boot-on-idea-intellij
+https://www.4devs.com.br/
+https://www.lastpass.com/pt/features/password-generator#generatorTool
+
+Log4j
+https://www.youtube.com/watch?v=tCErZHxaTxg&t=675s
+https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/2.20.0
+https://www.alura.com.br/artigos/log4j-entenda-sobre-vulnerabilidade?gclid=Cj0KCQiAjbagBhD3ARIsANRrqEsahLCbY3a6FH9kmoFITThvQ0s4BINZKXIYfdDfHZT7j3Ur6ulYUrsaAk-sEALw_wcB
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.logging
+https://logging.apache.org/log4j/2.x/manual/layouts.html
+https://www.baeldung.com/spring-boot-logging
+https://www.baeldung.com/spring-boot-logback-log4j2
+
+Elasticsearch
+https://www.elastic.co/pt/what-is/elasticsearch
+https://www.elastic.co/pt/what-is/ecs
+
+Disable docker to start automatically
+https://stackoverflow.com/questions/40513545/how-to-prevent-docker-from-starting-a-container-automatically-on-system-startup
+https://stackoverflow.com/questions/37599128/docker-how-do-you-disable-auto-restart-on-a-container
+
+-->
+
