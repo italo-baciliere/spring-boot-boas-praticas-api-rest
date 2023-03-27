@@ -31,4 +31,8 @@ public class ApiApplication {
  * caso contrario deve solicitar um token novamente.
  *
  * Após authenticado a api deve retornar os dados do usuário.
+ *
+ * Criar um serviço de cache
+ * Armazenar no banco de dados todas a requisições
+ * Utilizar Cache para o token
 */

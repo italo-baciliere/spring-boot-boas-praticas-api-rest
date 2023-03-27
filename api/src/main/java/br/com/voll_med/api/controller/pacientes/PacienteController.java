@@ -1,22 +1,25 @@
 package br.com.voll_med.api.controller.pacientes;
 
-import org.springframework.http.HttpStatus;
+import br.com.voll_med.api.domain.paciente.Paciente;
+import br.com.voll_med.api.domain.paciente.PacienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
 
-//    @GetMapping
-//    public ResponseEntity listarPacientes(){
-//        return ResponseEntity.status(HttpStatus.OK).body("Teste");
-//    }
+    @Autowired
+    private PacienteRepository pacienteRepository;
+
     @GetMapping
-    public String listarPacientes(){
-        return "Teste";
+    public ResponseEntity<List<Paciente>> listAllPacientes(){
+        return ResponseEntity.ok().body(pacienteRepository.findAll());
     }
 
 }

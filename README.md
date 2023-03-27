@@ -77,16 +77,12 @@ Validation
 * Utilizando Json Web Token para controlar o acesso na API
 
 
-[] -> Como rodar o projeto
 
 Inicie o docker com o banco de dados da aplicação:
 
 '''bash
 docker-compose up -d
 '''
-
-[] -> Inserir arquivo SQL para popular a tabela
-[] -> Rodar o MySQL
 
 # Executando o Projeto
 
@@ -110,22 +106,19 @@ e execute o camando:
 '''
 
 
-[] -> Deixar o SQL automático com validação (IfNotExist)
 [] -> Criar o crud do paciente
+<!-- https://www.figma.com/file/N4CgpJqsg7gjbKuDmra3EV/Voll.med -->
 [] -> Criar testes automatizados com Spring
 [] -> Dividir o modulo de autenticacao em um ms
+[] -> Dividir cada module em um microservico
+[] -> Aplicar um gateway
 [] -> Aplicar o Elasticsearch (ECS)
+[] -> Aplicar o Swagger na API.
+[] -> Java Comment Annotation.
+<!-- https://www.baeldung.com/javadoc -->
 
-
-<!-- 
-Bean
-DTO
-Interfaces Repository JpaRepository
- -->
 
  <!--
- Cada ação do CRUD utilizar o seu método HTTP corretamente.
-
  Tratamento do retorno da API nas requisições
     Retornar o código correte, dependendo da solicitação.
     Não devemos sempre retorna o método 200.
@@ -136,11 +129,7 @@ Interfaces Repository JpaRepository
         Porém o mesmo possui algumas regras.
         devolver no corpo da resposta os dados do novo recurso
         registrado.
-        Devolver também um cabeçalho do protocolo HTTP (Location)    
-        
-    
-Não podemos passar uma entidade JPA como retorno e como parametro recebido.
-Não é recomendado devolver e receber entidades JPA no controller.
+        Devolver também um cabeçalho do protocolo HTTP (Location)
  -->
 
 
@@ -150,10 +139,12 @@ Não é recomendado devolver e receber entidades JPA no controller.
 https://johnfercher.medium.com/mysql-docker-7ff6d50d6cf1 (MySQL + Docker)
 https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup (Create database on docker-compose startup)
 
- -->
 https://trello.com/b/O0lGCsKb/api-voll-med
+
 https://stackoverflow.com/questions/33349456/how-to-make-auto-reload-with-spring-boot-on-idea-intellij
+
 https://www.4devs.com.br/
+
 https://www.lastpass.com/pt/features/password-generator#generatorTool
 
 Log4j
